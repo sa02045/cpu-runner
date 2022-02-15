@@ -2,8 +2,9 @@
   "name": "cpu-runner",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/sa02045/cpu-runner/issues"
   },
-  "homepage": "https://github.com/sa02045/cpu-runner#readme"
+  "homepage": "https://github.com/sa02045/cpu-runner#readme",
+  "devDependencies": {
+    "electron": "^17.0.1"
+  },
+  "dependencies": {
+    "os-utils": "^0.0.14",
+    "sharp": "^0.30.1"
+  }
 }
