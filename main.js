@@ -1,16 +1,25 @@
 const { app, Menu, Tray } = require("electron");
 const sharp = require("sharp");
+const os = require("os-utils");
 
-let tray = null;
-
+let tray;
+let usus = 200;
+let timer;
 app.whenReady().then(() => {
   tray = new Tray("./icon/output-large-0@2x.png");
+
   let idx = 2;
   setInterval(() => {
-    idx = idx % 6;
-    tray.setImage(`./icon/output-large-${idx}@2x.png`);
-    idx++;
-  }, 100);
+    os.cpuUsage((usage) => {
+      clearInterval(timer);
+      usus = parseInt(200 / Math.max(1, parseInt(usage * 100)));
+      timer = setInterval(() => {
+        idx = idx % 6;
+        tray.setImage(`./icon/output-large-${idx}@2x.png`);
+        idx++;
+      }, usus);
+    });
+  }, 2000);
 
   const contextMenu = Menu.buildFromTemplate([
     {
@@ -21,6 +30,5 @@ app.whenReady().then(() => {
       },
     },
   ]);
-
   tray.setContextMenu(contextMenu);
 });
