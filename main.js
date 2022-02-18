@@ -1,10 +1,11 @@
 const { app, Menu, Tray } = require("electron");
-const sharp = require("sharp");
 const os = require("os-utils");
 
+const ICON_NUMBERS = 10;
 let tray;
 let usus = 200;
 let timer;
+
 app.whenReady().then(() => {
   tray = new Tray("./icon/output-large-0@2x.png");
 
@@ -23,7 +24,7 @@ app.whenReady().then(() => {
 
   const contextMenu = Menu.buildFromTemplate([
     {
-      label: "종료",
+      label: "exit",
       type: "radio",
       click: () => {
         app.exit();
