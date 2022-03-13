@@ -28,24 +28,5 @@
   "dependencies": {
     "os-utils": "^0.0.14",
     "sharp": "^0.30.1"
-  },
-  "build": {
-    "appId": "cpurunner",
-    "productName": "cpu-runner",
-    "win": {
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        }
-      ]
-    },
-    "nsis": {
-      "oneClick": true,
-      "createDesktopShortcut": true
-    }
   }
 }
